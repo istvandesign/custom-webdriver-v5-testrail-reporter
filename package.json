@@ -1,0 +1,23 @@
+{
+  "name": "wdio-json-reporter",
+  "version": "1.0.0",
+  "description": "JSON reporter for WebdriverIO v5",
+  "main": "src/index.js",
+  "repository": "git@klalkadev.github.com:klalka-dev/wdio-json-reporter.git",
+  "author": "Kevin Lalka <lalka@work.co>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@wdio/reporter": "^5.4.15",
+    "chalk": "^2.4.2",
+    "pretty-ms": "^4.0.0"
+  },
+  "scripts": {
+    "compile": "babel src/ -d build/ --config-file ./babel.config.js"
+  },
+  "peerDependencies": {
+    "@wdio/cli": "^5.0.0"
+  }
+}
