@@ -1,15 +1,15 @@
 {
-  "name": "custom-webdriver-v5-json-reporter",
-  "version": "1.0.4",
-  "description": "JSON reporter for WebdriverIO v5",
-  "homepage": "https://github.com/klalka-dev/custom-webdriver-v5-json-reporter.git",
+  "name": "custom-webdriver-v5-testrail-reporter",
+  "version": "1.0.0",
+  "description": "TestRail reporter for WebdriverIO v5",
+  "homepage": "https://github.com/klalka-dev/custom-webdriver-v5-testrail-reporter.git",
   "main": "build/index.js",
   "keywords": [
     "Webdriver IO",
     "Custom Reporter",
-    "JSON"
+    "TestRail"
   ],
-  "repository": "https://github.com/klalka-dev/custom-webdriver-v5-json-reporter.git",
+  "repository": "https://github.com/klalka-dev/custom-webdriver-v5-testrail-reporter.git",
   "author": "Kevin Lalka <klalka.dev@gmail.com>",
   "license": "MIT",
   "dependencies": {
