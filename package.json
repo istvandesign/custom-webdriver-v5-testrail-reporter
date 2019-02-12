@@ -1,7 +1,8 @@
 {
   "name": "custom-webdriver-v5-json-reporter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JSON reporter for WebdriverIO v5",
+  "homepage": "https://github.com/klalka-dev/custom-webdriver-v5-json-reporter.git",
   "main": "build/index.js",
   "keywords": [
     "Webdriver IO",
