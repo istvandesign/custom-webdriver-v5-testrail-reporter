@@ -1,4 +1,4 @@
-# wdio-json-reporter
+# custom-webdriver-v5-json-reporter
 
 JSON reporter for WebdriverIO v5
 
