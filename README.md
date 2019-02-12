@@ -8,7 +8,7 @@ To use this reporter:
 2. Require it in your WDIO config file
 
 ```
-    const myReporter = require('custom-webdriver-v5-json-reporter').default;
+    const myReporter = require('custom-webdriver-v5-json-reporter');
 ```
 
 3. Add it to the list of reporters

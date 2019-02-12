@@ -1,7 +1,7 @@
 import WDIOReporter from "@wdio/reporter";
 import fs from "fs";
 
-export default class MyReporter extends WDIOReporter {
+module.exports = class MyReporter extends WDIOReporter {
   constructor(options) {
     super(options);
     this.obj = {};
@@ -78,4 +78,4 @@ export default class MyReporter extends WDIOReporter {
     }
     printTestFile();
   }
-}
+};
