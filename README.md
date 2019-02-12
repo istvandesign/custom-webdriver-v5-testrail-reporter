@@ -4,11 +4,11 @@ JSON reporter for WebdriverIO v5
 
 To use this reporter:
 
-1. Install via npm or yarn: `yarn add wdio-json-reporter`
+1. Install via npm or yarn: `yarn add custom-webdriver-v5-json-reporter`
 2. Require it in your WDIO config file
 
 ```
-    const myReporter = require('../reporter').default;
+    const myReporter = require('custom-webdriver-v5-json-reporter').default;
 ```
 
 3. Add it to the list of reporters

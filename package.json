@@ -1,8 +1,8 @@
 {
   "name": "custom-webdriver-v5-json-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSON reporter for WebdriverIO v5",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "keywords": [
     "Webdriver IO",
     "Custom Reporter",
