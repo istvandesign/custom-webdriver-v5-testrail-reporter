@@ -2,10 +2,28 @@
 
 JSON reporter for WebdriverIO v5
 
-This will create a JSON file when you specify the `outputDir` in the reporters section of your `wdio.conf.js` config file.
+To use this reporter:
 
-The documentation says I can use `this.write()` to create a file or print to screen but I was unable to get it to work properly so I just made it create a file.
+1. Install via npm or yarn: `yarn add wdio-json-reporter`
+2. Require it in your WDIO config file
 
-I was only interested in the test data but in case someone wanted to expose the runner config you can set `printRunnerStats: true` in your WDIO config and it will also create a separate file that has the config `sanitizedCapabilities`.
+```
+    const myReporter = require('../reporter').default;
+```
 
-There are defaults in place for creating the file but you can provide `outputDir` for the relative path and `filename` for the name of the file.
+3. Add it to the list of reporters
+
+```
+// wdio.conf.js
+{
+    ...
+    reporters: [[myReporter, { stdout: false, outputDir: './reports' }]],
+    ...
+}
+```
+
+You can change `stdout` to `true` if you only want to print to the screen. If you choose `false` the default `'./'` path will be used to generate reports. If you can provide a `outputDir` and `filename` if you want control what data is created.
+
+**NOTE:** The documentation says I can use `this.write()` to create a file or print to screen but I was unable to get it to work properly and looking at the sumo reporter example in the documentation I didn't see it used, so I just used console.log and fs.writeFile.
+
+I was only interested in the test data but in case someone wanted to expose the runner config you can set `printRunnerStats: true` in your WDIO config and it will also create a separate file that has the config `sanitizedCapabilities`. I didn't provide a way to change the filenames and paths here.
