@@ -1,14 +1,16 @@
-# custom-webdriver-v5-json-reporter
+# custom-webdriver-v5-testrail-reporter
 
-JSON reporter for WebdriverIO v5
+TestRail reporter for WebdriverIO v5
+
+(a fork of custom-webdriver-v5-json-reporter)
 
 To use this reporter:
 
-1. Install via npm or yarn: `yarn add custom-webdriver-v5-json-reporter`
+1. Install via npm or yarn: `yarn add custom-webdriver-v5-testrail-reporter`
 2. Require it in your WDIO config file
 
 ```
-    const myReporter = require('custom-webdriver-v5-json-reporter');
+    const myReporter = require('custom-webdriver-v5-testrail-reporter');
 ```
 
 3. Add it to the list of reporters
