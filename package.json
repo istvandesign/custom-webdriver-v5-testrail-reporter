@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "JSON reporter for WebdriverIO v5",
   "main": "src/index.js",
+  "keywords": [
+    "Webdriver IO",
+    "Custom Reporter",
+    "JSON"
+  ],
   "repository": "git@klalkadev.github.com:klalka-dev/wdio-json-reporter.git",
   "author": "Kevin Lalka <klalka.dev@gmail.com>",
   "license": "MIT",
