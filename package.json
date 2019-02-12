@@ -1,10 +1,10 @@
 {
-  "name": "wdio-json-reporter",
+  "name": "custom-webdriver-v5-json-reporter",
   "version": "1.0.0",
   "description": "JSON reporter for WebdriverIO v5",
   "main": "src/index.js",
   "repository": "git@klalkadev.github.com:klalka-dev/wdio-json-reporter.git",
-  "author": "Kevin Lalka <lalka@work.co>",
+  "author": "Kevin Lalka <klalka.dev@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@babel/cli": "^7.2.3",
