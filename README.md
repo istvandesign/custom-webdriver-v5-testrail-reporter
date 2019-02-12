@@ -27,3 +27,5 @@ You can change `stdout` to `true` if you only want to print to the screen. If yo
 **NOTE:** The documentation says I can use `this.write()` to create a file or print to screen but I was unable to get it to work properly and looking at the sumo reporter example in the documentation I didn't see it used, so I just used console.log and fs.writeFile.
 
 I was only interested in the test data but in case someone wanted to expose the runner config you can set `printRunnerStats: true` in your WDIO config and it will also create a separate file that has the config `sanitizedCapabilities`. I didn't provide a way to change the filenames and paths here.
+
+Feel free to suggest improvements or fork as necessary. I could not find a solution for what I needed so I created this.
