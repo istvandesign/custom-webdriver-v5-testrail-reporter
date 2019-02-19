@@ -1,15 +1,15 @@
 import WDIOReporter from "@wdio/reporter";
-import fs from "fs";
+import axios from "axios";
 
-module.exports = class MyReporter extends WDIOReporter {
+class TestRailReporter extends WDIOReporter {
   constructor(options) {
+    options = Object.assign(options, { stdout: false });
     super(options);
     this.obj = {};
-    this.printRunnerStats = options.printRunnerStats || false;
-    if (!options.stdout) {
-      this.outputDir = options.outputDir || "./";
-      this.filename = options.filename;
-    }
+    this.projectRoute = "/index.php?/api/v2/get_projects";
+    this.testRailUrl = options.testRailUrl;
+    this.username = options.username;
+    this.password = options.password;
   }
 
   onSuiteEnd(suite) {
@@ -29,53 +29,41 @@ module.exports = class MyReporter extends WDIOReporter {
     suite.suites.map(suite => this.obj.suites.push(suite));
   }
 
-  onRunnerEnd(runnerStats) {
-    const filename =
-      this.filename || `${this.obj.title}-report-${Date.now()}.json`;
-
-    const printRunnerFile = () => {
-      if (this.options.stdout) {
-        console.log(JSON.stringify(runnerStats));
-      } else {
-        try {
-          fs.writeFile(
-            `${this.outputDir}/${
-              runnerStats.sanitizedCapabilities
-            }-${filename}`,
-            JSON.stringify(runnerStats),
-            err => {
-              if (err) throw err;
-              console.log(`${this.obj.title} runner report done`);
-            }
-          );
-        } catch (e) {
-          console.log("There was a problem writing your file. ERROR ", e);
-        }
-      }
-    };
-
-    const printTestFile = () => {
-      if (this.options.stdout) {
-        console.log(JSON.stringify(runnerStats));
-      } else {
-        try {
-          fs.writeFile(
-            `${this.outputDir}/${filename}`,
-            JSON.stringify(this.obj),
-            err => {
-              if (err) throw err;
-              console.log(`${this.obj.title} report done`);
-            }
-          );
-        } catch (e) {
-          console.log("There was a problem writing your file. ERROR ", e);
-        }
-      }
-    };
-
-    if (this.printRunnerStats) {
-      printRunnerFile();
-    }
-    printTestFile();
+  getTicketIds() {
+    var ticketIds = [];
+    this.obj.tests.map(test => {
+      ticketIds.push(test.title.substring(1, 8));
+    });
+    return ticketIds;
   }
-};
+
+  onRunnerEnd(runnerStats) {
+    const ticketIds = this.getTicketIds();
+    const testRailUrl = "https://workco.testrail.com";
+    const projectRoute = "/index.php?/api/v2/get_projects";
+    const instance = axios.create({
+      baseURL: testRailUrl,
+      timeout: 5000,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Basic bGFsa2FAd29yay5jbzp0aGlzaXNteTFURVNUUkFJTHBhc3NAd29yZA=="
+      }
+    });
+
+    console.log("making call to testrail...", instance);
+    instance
+      .get(projectRoute)
+      .then((error, resp, body) => {
+        if (error) {
+          console.log(error);
+          return;
+        }
+        console.log("resp ", resp);
+        console.log("body ", body);
+      })
+      .catch(e => console.log("ERROR ", e));
+  }
+}
+
+module.exports = TestRailReporter;
